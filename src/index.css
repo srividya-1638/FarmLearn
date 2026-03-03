@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 33% 96%;
+    --foreground: 150 30% 12%;
+
+    --card: 40 30% 98%;
+    --card-foreground: 150 30% 12%;
+
+    --popover: 40 30% 98%;
+    --popover-foreground: 150 30% 12%;
+
+    --primary: 142 50% 28%;
+    --primary-foreground: 40 33% 96%;
+
+    --secondary: 38 80% 55%;
+    --secondary-foreground: 150 30% 12%;
+
+    --muted: 40 20% 90%;
+    --muted-foreground: 150 10% 45%;
+
+    --accent: 142 35% 40%;
+    --accent-foreground: 40 33% 96%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 142 50% 28%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 142 40% 15%;
+    --sidebar-foreground: 40 33% 96%;
+    --sidebar-primary: 38 80% 55%;
+    --sidebar-primary-foreground: 150 30% 12%;
+    --sidebar-accent: 142 35% 22%;
+    --sidebar-accent-foreground: 40 33% 96%;
+    --sidebar-border: 142 30% 25%;
+    --sidebar-ring: 38 80% 55%;
+
+    /* Custom tokens */
+    --farm-green: 142 50% 28%;
+    --farm-green-light: 142 40% 45%;
+    --farm-gold: 38 80% 55%;
+    --farm-gold-light: 40 75% 70%;
+    --farm-earth: 25 35% 30%;
+    --farm-earth-light: 30 25% 50%;
+    --farm-cream: 40 33% 96%;
+    --farm-sky: 200 60% 55%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(142 50% 28%), hsl(142 35% 40%), hsl(38 80% 55%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 80% 55%), hsl(40 75% 70%));
+    --gradient-green: linear-gradient(135deg, hsl(142 50% 28%), hsl(142 40% 45%));
+    --shadow-card: 0 4px 20px -4px hsl(142 50% 28% / 0.12);
+    --shadow-elevated: 0 12px 40px -8px hsl(142 50% 28% / 0.2);
+  }
+
+  .dark {
+    --background: 150 25% 8%;
+    --foreground: 40 33% 96%;
+
+    --card: 150 20% 12%;
+    --card-foreground: 40 33% 96%;
+
+    --popover: 150 20% 12%;
+    --popover-foreground: 40 33% 96%;
+
+    --primary: 142 45% 45%;
+    --primary-foreground: 150 30% 8%;
+
+    --secondary: 38 70% 50%;
+    --secondary-foreground: 40 33% 96%;
+
+    --muted: 150 15% 18%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 142 30% 30%;
+    --accent-foreground: 40 33% 96%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 150 15% 20%;
+    --input: 150 15% 20%;
+    --ring: 142 45% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .farm-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+
+  .farm-card {
+    @apply bg-card rounded-xl border border-border p-6;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+  }
+
+  .farm-card:hover {
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-4px);
+  }
+
+  .farm-glass {
+    @apply backdrop-blur-md border border-border/50;
+    background: hsl(var(--background) / 0.85);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--farm-green-light));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--farm-green));
+}
